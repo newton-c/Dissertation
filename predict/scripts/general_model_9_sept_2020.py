@@ -28,10 +28,6 @@ data = pd.merge(data, ef,
 # Null model
 y = data.hom_rate # target feature
 
-#features = ['con_dur', 'peace_dur', 'totalbrds', 'totalosv', 'rgdppc', 
-#      'v2x_libdem', 'drugs_any', 'gems_any', 'agriculture_any', 
-#      'minerals_any', 'fuel_any']
-
 features = ['con_dur', 'peace_dur', 'totalbrds', 'totalosv', 'mtnest', 
       'v2x_libdem']
 
@@ -90,21 +86,19 @@ print('Coefficient of determination: %.2f'
       % r2_score(y_test, preds))
 
 # random forest
-rf_reg = RandomForestRegressor(n_estimators=200, random_state=0)
-rf_reg.fit(X_train_sc, y_train)
-preds = rf_reg.predict(X_test_sc)
+def rf_models(X_train, y_train, X_test, y_test, n_estimators,
+      random_state, model_name):
+      rf_reg = RandomForestRegressor(n_estimators=n_estimators,
+            random_state=random_state)
+      rf_reg.fit(X_train, y_train)
+      preds = rf_reg.predict(X_test)
+      print('\nRandom Forest: %s\n' % model_name)
+      print('Mean absolute error: %.2f' % mean_absolute_error(y_test, preds))
+      print('Mean squared error: %.2f' % mean_squared_error(y_test, preds))
+      print('Coefficient of determination: %.2f' % r2_score(y_test, preds))
 
-print('\nRandom Forest\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
 
-#print('Coefficients: \n', rf_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
+rf_models(X_train_sc, y_train, X_test_sc, y_test, 200, 0, "Null Model")
 
 # Social Disorganization Model
 
@@ -129,57 +123,8 @@ sc = StandardScaler()
 X_train_sc = sc.fit_transform(X_train_imputed)
 X_test_sc = sc.transform(X_test_imputed)
 
-# linear regression
-lin_reg = LinearRegression()
-lin_reg.fit(X_train_sc, y_train)
-preds = lin_reg.predict(X_test_sc)
-
-print('\nSocial Disorganization Models\n')
-print('Linear Regression\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-print('Coefficients: \n', lin_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
-
-# stochastic gradient descent
-sgd_reg = SGDRegressor(max_iter=500, penalty=None, eta0=0.001)
-sgd_reg.fit(X_train_sc, y_train)
-preds = sgd_reg.predict(X_test_sc)
-
-print('\nStocastic Gradient Descent\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-print('Coefficients: \n', sgd_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
-
-# random forest
-rf_reg = RandomForestRegressor(n_estimators=200, random_state=0)
-rf_reg.fit(X_train_sc, y_train)
-preds = rf_reg.predict(X_test_sc)
-
-print('\nRandom Forest\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-#print('Coefficients: \n', rf_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
+rf_models(X_train_sc, y_train, X_test_sc, y_test, 
+      200, 0, "Social Disorganization Model")
 
 # Political Economy Model
 features = ['con_dur', 'peace_dur', 'totalbrds', 'totalosv', 'mtnest', 
@@ -203,57 +148,8 @@ sc = StandardScaler()
 X_train_sc = sc.fit_transform(X_train_imputed)
 X_test_sc = sc.transform(X_test_imputed)
 
-# linear regression
-lin_reg = LinearRegression()
-lin_reg.fit(X_train_sc, y_train)
-preds = lin_reg.predict(X_test_sc)
-
-print('\nPolitical Economy Models\n')
-print('Linear Regression\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-print('Coefficients: \n', lin_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
-
-# stochastic gradient descent
-sgd_reg = SGDRegressor(max_iter=500, penalty=None, eta0=0.001)
-sgd_reg.fit(X_train_sc, y_train)
-preds = sgd_reg.predict(X_test_sc)
-
-print('\nStocastic Gradient Descent\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-print('Coefficients: \n', sgd_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
-
-# random forest
-rf_reg = RandomForestRegressor(n_estimators=200, random_state=0)
-rf_reg.fit(X_train_sc, y_train)
-preds = rf_reg.predict(X_test_sc)
-
-print('\nRandom Forest\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-#print('Coefficients: \n', rf_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
+rf_models(X_train_sc, y_train, X_test_sc, y_test, 
+      200, 0, "Political Economy Model")
 
 # Organizational model
 
@@ -279,55 +175,5 @@ sc = StandardScaler()
 X_train_sc = sc.fit_transform(X_train_imputed)
 X_test_sc = sc.transform(X_test_imputed)
 
-# linear regression
-lin_reg = LinearRegression()
-lin_reg.fit(X_train_sc, y_train)
-preds = lin_reg.predict(X_test_sc)
-
-print('\nOrganizational Models\n')
-print('Linear Regression\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-print('Coefficients: \n', lin_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
-
-# stochastic gradient descent
-sgd_reg = SGDRegressor(max_iter=500, penalty=None, eta0=0.001)
-sgd_reg.fit(X_train_sc, y_train)
-preds = sgd_reg.predict(X_test_sc)
-
-print('\nStocastic Gradient Descent\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-print('Coefficients: \n', sgd_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
-
-# random forest
-rf_reg = RandomForestRegressor(n_estimators=200, random_state=0)
-rf_reg.fit(X_train_sc, y_train)
-preds = rf_reg.predict(X_test_sc)
-
-print('\nRandom Forest\n')
-print('Mean absoulte error: %.2f'
-        % mean_absolute_error(y_test, preds))
-
-#print('Coefficients: \n', rf_reg.coef_)
-# The mean squared error
-print('Mean squared error: %.2f'
-      % mean_squared_error(y_test, preds))
-# The coefficient of determination: 1 is perfect prediction
-print('Coefficient of determination: %.2f'
-      % r2_score(y_test, preds))
-      
+rf_models(X_train_sc, y_train, X_test_sc, y_test, 
+      200, 0, "Organizational Model")
