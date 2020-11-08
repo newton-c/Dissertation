@@ -54,13 +54,12 @@ fig.add_trace(go.Scatter(x=Xn,
                   y=Yn,
                   mode='markers',
                   name='bla',
-                  marker=dict(symbol='circle-dot',
+                  marker=dict(symbol='square-open',
                                 size=18,
                                 color='#6175c1',    #'#DB4551',
-                                line=dict(color='rgb(50,50,50)', width=1)
+                                line=dict(color='rgb(300,300,300)', width=1)
                                 ),
-                  text=labels,
-                  hoverinfo='text',
+                  hoverinfo='none',
                   opacity=0.8
                   ))
 
@@ -86,7 +85,7 @@ axis = dict(showline=False, # hide axis line, grid, ticklabels and  title
             showticklabels=False,
             )
 
-fig.update_layout(title= 'Tree with Reingold-Tilford Layout',
+fig.update_layout(title= 'Forest model',
               annotations=make_annotations(position, v_label),
               font_size=12,
               showlegend=False,
