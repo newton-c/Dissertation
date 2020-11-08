@@ -16,7 +16,7 @@ tab_style1 = {
 
 tab_style2 = {
     'height': '44px',
-    'marginLeft': '355px'
+    'width': '425px'
 }
 
 # Creating the forest graph for the appendix
@@ -754,7 +754,8 @@ def update_tabs(value):
     if value == 'tab-99': # Appendicies
         return dcc.Tabs(id="subtabs", value="subtab-1", children=[
             dcc.Tab(label='Media & Murder code', id='subtab1',
-            value='subtab1', children=[
+            value='subtab1', style=tab_style2, selected_style=tab_style2,
+            children=[
                 dcc.Markdown('''
 
                 Scraping the news (Shell):
@@ -871,12 +872,16 @@ def update_tabs(value):
             ]),
 
             dcc.Tab(label='Forest Models', 
-            id='subtab3', value='subtab3', children=[
+            id='subtab3', value='subtab3',
+            style=tab_style2, selected_style=tab_style2,
+            children=[
                 dcc.Graph(figure=fig)
                 ]),
 
             dcc.Tab(label='Prediction & Theories of Violence code', 
-            id='subtab4', value='subtab4', children=[
+            id='subtab4', value='subtab4', 
+            style=tab_style2, selected_style=tab_style2,
+            children=[
                 dcc.Markdown('''
                 ```py
             from sklearn.model_selection import train_test_split
