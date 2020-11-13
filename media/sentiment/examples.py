@@ -2,7 +2,7 @@ from classifier import *
 
 clf = SentimentClassifier()
 
-ex_1 = "Las FARC estaban ahi" <- s/farc/personas/g
+ex_1 = "Las FARC estaban ahi" 
 ex_2 = "Las personas estaban ahi"
 print(clf.predict(ex_1))
 print(clf.predict(ex_2))
