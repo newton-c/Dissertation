@@ -4,14 +4,11 @@
 
 # This first function scrapes the URLS for the relevant section
 function getURLS { 
-        for i in {1};
-        do
                 curl "$url" |
                 grep "$link_name" |
                 sed "s/$pre_link_find/$pre_link_replace/" |
                 sed "s/$post_link_find/$post_link_replace/" |
-                uniq 
-        done > $file_name
+                uniq > $file_name
 
         }
 
@@ -42,7 +39,7 @@ maxpages=2
 url=https://www.elespectador.com/tags/farc/[1-4]/
 link_name="<a class=\"Card-FullArticle\" href=.*"
 pre_link_find="^.*href=\""
-pre_link_replace="https\:\/\/www\.elespectador\.com\/"
+pre_link_replace="https\:\/\/www\.elespectador\.com"
 post_link_find="\">Ver noticia completa.*"
 post_link_replace=
 file_name=test_urls.txt
