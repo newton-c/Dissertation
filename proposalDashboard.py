@@ -27,7 +27,7 @@ def render_content(value):
     if value == 'tab-1':
         return html.Div(html.Img(src=app.get_asset_url('UB_Horizontal.png'),
             style={'position': 'fixed',
-            'bottom': 0,
+            'bottom': 2,
             'left': 700,
             'height': 70,
             'width': 450})),
@@ -35,7 +35,7 @@ def render_content(value):
     elif value == 'tab-2':
         return html.Div(html.Img(src=app.get_asset_url('UB_Horizontal.png'),
             style={'position': 'fixed',
-            'bottom': 0,
+            'bottom': 2,
             'left': 700,
             'height': 70,
             'width': 450})),
@@ -43,7 +43,7 @@ def render_content(value):
     elif value == 'tab-3':
         return html.Div(html.Img(src=app.get_asset_url('UB_Horizontal.png'),
             style={'position': 'fixed',
-            'bottom': 0,
+            'bottom': 2,
             'left': 700,
             'height': 70,
             'width': 450})),
@@ -51,7 +51,7 @@ def render_content(value):
     elif value == 'tab-4':
         return html.Div(html.Img(src=app.get_asset_url('UB_Horizontal.png'),
             style={'position': 'fixed',
-            'bottom': 0,
+            'bottom': 2,
             'left': 700,
             'height': 70,
             'width': 450})),
@@ -287,7 +287,7 @@ def update_content(value):
             * End of December: Conduct sentiment analysis
             * January: Merging all data
             * February: Statistical analysis
-            * March and April: Writing and editing
+            * March & April: Writing and editing
             ''',
             style={
                 'marginTop': 100,
@@ -304,9 +304,9 @@ def update_content(value):
         return dcc.Tabs(id='subtabs', value='subtab-3', children=[
             dcc.Tab(label='Organizational Explanations', id='subtab1', value='subtab1', children=[
                 html.Div([ 
-                    html.H2('Rebels, Resources, & Homicide',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Rebels, Resources, & Homicide
+
                     * Organizational structure, resource access, and resruitment strategies effect rebels behavior
 
                     * Two types of recruits
@@ -330,20 +330,20 @@ def update_content(value):
                         'marginLeft': 200,
                         'fontSize': 24}),
                     ])], style=subtab_style, selected_style=subtab_style),
-            dcc.Tab(label='Post-Conflict', id='subtab2', value='subtab2', children=[
+            dcc.Tab(label='Postconflict', id='subtab2', value='subtab2', children=[
                 html.Div([
-            html.H2('Rebels, Resources, & Homicide',
-            style={'textAlign': 'center'}),
-            dcc.Markdown('''
-            * Opportunists learned how to use violence to extract resources and exploit population
-                * When conflict ends, use skills for criminal profit
+                    dcc.Markdown('''
+                    ## Rebels, Resources, & Homicide
 
-            * Activists only use violence for political reasons
-                * When conflict ends, accept outcome or remobilize
+                    * Opportunists learned how to use violence to extract resources and exploit population
+                        * When conflict ends, use skills for criminal profit
 
-            _Hypothesis 1:  The more a rebel group relies on profits from 
-            contraband during a conflict, the higher postconflict homicide rates will be._
-            ''',
+                    * Activists only use violence for political reasons
+                        * When conflict ends, accept outcome or remobilize
+
+                    _Hypothesis 1:  The more a rebel group relies on profits from 
+                    contraband during a conflict, the higher postconflict homicide rates will be._
+                    ''',
             style={
                 'marginTop': 100,
                 'marginLeft': 200,
@@ -351,20 +351,34 @@ def update_content(value):
             ])]),
             dcc.Tab(label='Research Design', id='subtab3', value='subtab3', children=[
                 html.Div([ 
-                    html.H2('Rebels, Resources, & Homicide',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Rebels, Resources, & Homicide
+
+                    * DV: Homicide rate
+
+                    * IV: Years with ilicit funding
+
+                    * Controls: Unemployment, GDP per capita, Polity5, 
+                    conflict duration, BRDs, OSV, DDR, conflict termination,
+                    peacekeeping
+
+                    * Unit of analysis: Dyad-year
+
                     ''',
                     style={
                         'marginTop': 100,
                         'marginLeft': 200,
                         'fontSize': 24}),
                     ])]),
-            dcc.Tab(label='Nest Steps', id='subtab4', value='subtab4', children=[
+            dcc.Tab(label='Next Steps', id='subtab4', value='subtab4', children=[
                 html.Div([ 
-                    html.H2('Rebels, Resources, & Homicide',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Rebels, Resources, & Homicide
+
+                    * November: Complete merging and generating variables
+                    * December & January: Statistical analysis and correcting 
+                    mistakes
+                    * January-March: Writing and editing
                     ''',
                     style={
                         'marginTop': 100,
@@ -381,78 +395,134 @@ def update_content(value):
         return dcc.Tabs(id='subtabs', value='subtab-4', children=[
             dcc.Tab(label='Social Disorganization', id='subtab1', value='subtab1', children=[
                 html.Div([ 
-                    html.H2('Prediction & Theories of Violence',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Prediction & Theories of Violence
+                    
+                    ### Social Disorganization Theory
+
+                    * Population disorganization
+                        * Population turnover
+                        * Heterogeneity
+
+                    * Social disorganization causes crime as well as other ills,
+                    such as poor economic performance
+
+                    _Hypothesis 1: A model that includes ethnolinguistic 
+                    fractionalization, change in population, and IDPs will 
+                    better predict postconflict crime than the null model._
                     ''',
                     style={
-                        'marginTop': 100,
+                        'marginTop': 10,
                         'marginLeft': 200,
+                        'marginRight': 100,
                         'fontSize': 24}),
                     ])], style=subtab_style, selected_style=subtab_style),
             dcc.Tab(label='Political Economy of Crime', id='subtab2', value='subtab2', children=[        
                 html.Div([ 
-                    html.H2('Prediction & Theories of Violence',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Prediction & Theories of Violence
+                    
+                    ### Political Economy of Crime
+
+                    * Unemployment
+
+                    * Inequality
+
+                    _Hypothesis 2: A model that includes unemployment and income
+                    inequality will predict postconflict crime better than the
+                    null model._
                      ''',
                      style={
-                        'marginTop': 100,
+                        'marginTop': 10,
                         'marginLeft': 200,
+                        'marginRight': 100,
                         'fontSize': 24}),
                     ])]),    
             dcc.Tab(label='Organizational Theory', id='subtab3', value='subtab3', children=[        
                 html.Div([ 
-                    html.H2('Prediction & Theories of Violence',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Prediction & Theories of Violence
+
+                    ### Organizational Explanations of Civilian Victimization
+
+                    * Direct connection to the conflict
+
+                    * Also economic, but illict
+
+                    _Hypothesis 3: A model that includes rebel contraband will predict
+                    postconflict crime better than the null model._
                      ''',
                      style={
-                        'marginTop': 100,
+                        'marginTop': 10,
                         'marginLeft': 200,
+                        'marginRight': 100,
                         'fontSize': 24}),
                     ])]),    
             dcc.Tab(label='Machine Learning', id='subtab4', value='subtab4', children=[        
                 html.Div([ 
-                    html.H2('Prediction & Theories of Violence',
-                    style={'textAlign': 'center'}),
-                    dcc.Markdown('''
-                     ''',
-                     style={
-                        'marginTop': 100,
-                        'marginLeft': 200,
-                        'fontSize': 24}),
+                    html.Img(src=app.get_asset_url('overfitting.png'),
+                        style={'marginLeft': 275}),
+                    html.Img(src=app.get_asset_url('good_fit.png'),
+                        style={'marginLeft': 275}),
                     ])]),    
             dcc.Tab(label='Research Design', id='subtab5', value='subtab5', children=[        
                 html.Div([ 
-                    html.H2('Prediction & Theories of Violence',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Prediction & Theories of Violence
+
+                    ### Research Design
+
+                    * Null Model
+                        * DV: Homicide rate
+                        * Controls: BRDs, OSV, conflict duration, GDP per 
+                        capita, Polity5
+                        * Model: OLS, SGD, random forests
+
+                    * Social Disorganization
+                        * IVs: Ethnolinguistic fractionalization, population 
+                        change, IDPs
+                    
+                    * Political Economy 
+                        * Unemployment, Gini
+
+                    * Organizational
+                        * Illicit funding
                      ''',
                      style={
-                        'marginTop': 100,
+                        'marginTop': 10,
                         'marginLeft': 200,
                         'fontSize': 24}),
                     ])]),    
             dcc.Tab(label='Initial Results', id='subtab6', value='subtab6', children=[        
                 html.Div([ 
-                    html.H2('Prediction & Theories of Violence',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Prediction & Theories of Violence
+
                      ''',
                      style={
-                        'marginTop': 100,
+                        'marginTop': 10,
                         'marginLeft': 200,
                         'fontSize': 24}),
+                    html.Img(src=app.get_asset_url('null_model_ir.png')),
+
+                    html.Img(src=app.get_asset_url('random_forests_ir.png'))
                     ])]),    
             dcc.Tab(label='Next Steps', id='subtab7', value='subtab7', children=[        
                 html.Div([ 
-                    html.H2('Prediction & Theories of Violence',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
+                    ## Prediction & Theories of Violence
+
+                    ### Next Steps
+
+                    * November & December: Building datasets with slow and 
+                    fast moving variables
+                    * December: Optimizing the null model
+                    * January: Training and optimizing the theoretical models
+                    * February: Robustness and stability testing
+                    * March & April: Writing and editing
                      ''',
                      style={
-                        'marginTop': 100,
+                        'marginTop': 10,
                         'marginLeft': 200,
                         'fontSize': 24}),
                     ])]),    
@@ -466,8 +536,6 @@ def update_content(value):
         return dcc.Tabs(id='subtabs', value='subtab-5', children=[
             dcc.Tab(label='Text Scraping Code', id='subtab1', value='subtab1', children=[
                 html.Div([ 
-                    html.H2('',
-                    style={'textAlign': 'center'}),
                     dcc.Markdown('''
                     ```sh
                     #!/bin/bash -w
@@ -525,7 +593,7 @@ def update_content(value):
                     style={
                         'marginTop': 10,
                         'marginLeft': 30,
-                        'fontSize': 24}),
+                        'fontSize': 18}),
                     ])], style=subtab_style, selected_style=subtab_style),
             dcc.Tab(label='Regression Trees', id='subtab2', value='subtab2', children=[
                 html.Div([
@@ -664,7 +732,7 @@ def update_content(value):
                     style={
                         'marginTop': 10,
                         'marginLeft': 30,
-                        'fontSize': 24}),
+                        'fontSize': 18}),
                     ])])], vertical=True)
 
 if __name__ == '__main__':
