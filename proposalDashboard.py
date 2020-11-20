@@ -127,14 +127,23 @@ def update_content(value):
                     dcc.Markdown('''
                     ## Media & Murder
 
-                    * _Kangura_
 
-                    * Radio Télévision Libre des Mille Collines (RTLM)
                     ''',
                     style={
                         'marginTop': 100,
                         'marginLeft': 200,
                         'fontSize': 24}),
+                    html.Img(src=app.get_asset_url('Kangura_cover.png'),
+                        style={'position': 'fixed',
+                        'bottom': 350,
+                        'left': 550,
+                        }),
+                    dcc.Markdown('''
+                    ### _Kangura_ (1991): "Which weapons are we going to use to beat the cockroaches for good?"
+                    ''',
+                    style={'position': 'fixed', 
+                        'left': 900,
+                        'right': 500}),
                     ])], style=subtab_style, selected_style=subtab_style),
             dcc.Tab(label='Effect of Media', id='subtab2', value='subtab2', children=[
                 html.Div([
