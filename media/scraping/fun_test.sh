@@ -35,7 +35,6 @@ function getArticles {
 ## Bogota ##
 
 # El Espectador: www.elespectador.com
-maxpages=2
 url=https://www.elespectador.com/tags/farc/[1-4]/
 link_name="<a class=\"Card-FullArticle\" href=.*"
 pre_link_find="^.*href=\""
@@ -44,9 +43,9 @@ post_link_find="\">Ver noticia completa.*"
 post_link_replace=
 file_name=test_urls.txt
 
-cut_head='/Escuchar este artículo/,$p'
-cut_tail='/Conecta_con_la_verdad._Suscríbete_a_elpais.com.co/q;p'
-cut_lines=2
+cut_head=''
+cut_tail=''
+cut_lines=
 article_file=test/text_
 
 getURLS
