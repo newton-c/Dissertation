@@ -164,6 +164,14 @@ def update_content(value):
                 'marginTop': 100,
                 'marginLeft': 200,
                 'fontSize': 24}),
+            html.Img(src=app.get_asset_url('trump.png'),
+                style={
+                    'width': 425,
+                    'height': 550,
+                    'position': 'fixed',
+                    'bottom': 125,
+                    'left': 1050,
+                    }),
             ])]),
             dcc.Tab(label='Reintegration', id='subtab3', value='subtab3', children=[
                 html.Div([ dcc.Markdown('''
@@ -180,6 +188,14 @@ def update_content(value):
                 'marginTop': 100,
                 'marginLeft': 200,
                 'fontSize': 24}),
+            html.Img(src=app.get_asset_url('burundi.jpg'),
+                style={
+                    'width': 700,
+                    'height': 450,
+                    'position': 'fixed',
+                    'bottom': 75,
+                    'left': 1050,
+                    }),
             ])]),
             dcc.Tab(label='Theory', id='subtab4', value='subtab4', children=[
                 html.Div([dcc.Markdown('''
