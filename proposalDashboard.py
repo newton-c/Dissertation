@@ -95,8 +95,11 @@ def update_content(value):
             ### Committee Chair: Professor Jacob Kathman
             ### Committee Member: Professor Michelle A. Benson
             ### Committee Member: Professor Jacob Neiheisel
-            ''', style={'textAlign': 'center',
-            'marginLeft': 200}),
+            '''
+            , style={'textAlign': 'center',
+                'marginLeft': 275
+                }
+            ),
             ])], style=subtab_style, selected_style=subtab_style),
 
             dcc.Tab(label='Criminal Violence & Negative Peace', id='subtab2', value='subtab2', children=[
@@ -179,7 +182,7 @@ def update_content(value):
 
             * Individual characteristics:
                 * Unit atrocities
-                * Acceptace by family & community
+                * Acceptance by family & community
                 * Forming of connections outside of unit
 
             * Broader programs have limited effects
@@ -236,7 +239,7 @@ def update_content(value):
             dcc.Markdown('''
             ## Media & Murder
 
-            Sentiment anaysis:
+            Sentiment analysis:
             * pretrained model
             * 0-1
             ''',
@@ -279,7 +282,7 @@ def update_content(value):
                 html.Div([dcc.Markdown('''
                 ## Media & Murder
 
-                * DV: Homicide Count
+                * DV: Homicide Rate
 
                 * IV: Sentiment of Media
                     * Continuous (0-1) 
@@ -311,7 +314,7 @@ def update_content(value):
             dcc.Markdown('''
             ## Media & Murder
 
-            * End of Deceber: Finish scraping and cleaning text data
+            * End of December: Finish scraping and cleaning text data
             * End of December: Conduct sentiment analysis
             * January: Merging all data
             * February: Statistical analysis
@@ -335,19 +338,19 @@ def update_content(value):
                     dcc.Markdown('''
                     ## Rebels, Resources, & Homicide
 
-                    * Organizational structure, resource access, and resruitment strategies effect rebels behavior
+                    * Organizational structure, resource access, and recruitment strategies effect rebels behavior
 
                     * Two types of recruits
                         * Activists
                         * Opportunists
 
-                    * Resource-rich groups will pay recruits to moblize a groups that can threaten the state
+                    * Resource-rich groups will pay recruits to mobilize a groups that can threaten the state
                         * Attracts opportunists
                         * Hard to sanction bad behavior
                         * Recruits likely indifferent to long-term goals of group
                         * Civilian victimization high
             
-                    * Resource-poor groups will mobalize based on ideoligical or ethnig lines
+                    * Resource-poor groups will mobilize based on ideological or ethnic lines
                         * Attracts activists
                         * Recruits vetted through social and communal networks
                         * Long-term goals of recruits and group similar
@@ -375,6 +378,7 @@ def update_content(value):
             style={
                 'marginTop': 100,
                 'marginLeft': 200,
+                'marginRight': 100,
                 'fontSize': 24}),
             ])]),
             dcc.Tab(label='Research Design', id='subtab3', value='subtab3', children=[
@@ -384,7 +388,7 @@ def update_content(value):
 
                     * DV: Homicide rate
 
-                    * IV: Years with ilicit funding
+                    * IV: Years with illicit funding
 
                     * Controls: Unemployment, GDP per capita, Polity5, 
                     conflict duration, BRDs, OSV, DDR, conflict termination,
@@ -396,6 +400,7 @@ def update_content(value):
                     style={
                         'marginTop': 100,
                         'marginLeft': 200,
+                        'marginRight': 100,
                         'fontSize': 24}),
                     ])]),
             dcc.Tab(label='Next Steps', id='subtab4', value='subtab4', children=[
@@ -403,10 +408,10 @@ def update_content(value):
                     dcc.Markdown('''
                     ## Rebels, Resources, & Homicide
 
-                    * November: Complete merging and generating variables
-                    * December & January: Statistical analysis and correcting 
+                    * December: Complete merging and generating variables
+                    * January: Statistical analysis and correcting 
                     mistakes
-                    * January-March: Writing and editing
+                    * February-March: Writing and editing
                     ''',
                     style={
                         'marginTop': 100,
@@ -475,7 +480,7 @@ def update_content(value):
 
                     * Direct connection to the conflict
 
-                    * Also economic, but illict
+                    * Also economic, but illicit
 
                     _Hypothesis 3: A model that includes rebel contraband will predict
                     postconflict crime better than the null model._
@@ -504,7 +509,7 @@ def update_content(value):
                         * DV: Homicide rate
                         * Controls: BRDs, OSV, conflict duration, GDP per 
                         capita, Polity5
-                        * Model: OLS, SGD, random forests
+                        * Model: OLS, SGD, random forests, neural net
 
                     * Social Disorganization
                         * IVs: Ethnolinguistic fractionalization, population 
@@ -520,21 +525,28 @@ def update_content(value):
                         'marginTop': 10,
                         'marginLeft': 200,
                         'fontSize': 24}),
-                    ])]),    
+                    ]
+                )
+            ]
+        ),    
             dcc.Tab(label='Initial Results', id='subtab6', value='subtab6', children=[        
                 html.Div([ 
-                    dcc.Markdown('''
-                    ## Prediction & Theories of Violence
-
-                     ''',
-                     style={
-                        'marginTop': 10,
-                        'marginLeft': 200,
-                        'fontSize': 24}),
-                    html.Img(src=app.get_asset_url('null_model_ir.png')),
-
-                    html.Img(src=app.get_asset_url('random_forests_ir.png'))
-                    ])]),    
+                        html.Img(src=app.get_asset_url('null_model_ir.png'),
+                            style={
+                                'marginTop': 60,
+                                'marginLeft': 180
+                                }
+                            ),
+                        html.Img(src=app.get_asset_url('random_forests_ir.png'),
+                            style={
+                                'marginTop': 60,
+                                'marginLeft': 100
+                                }
+                            )
+                    ]
+                )
+            ]
+        ),    
             dcc.Tab(label='Next Steps', id='subtab7', value='subtab7', children=[        
                 html.Div([ 
                     dcc.Markdown('''
@@ -542,8 +554,7 @@ def update_content(value):
 
                     ### Next Steps
 
-                    * November & December: Building datasets with slow and 
-                    fast moving variables
+                    * December: Building datasets
                     * December: Optimizing the null model
                     * January: Training and optimizing the theoretical models
                     * February: Robustness and stability testing
@@ -644,6 +655,10 @@ def update_content(value):
                     import matplotlib.pyplot as plt 
                     import numpy as np
                     import random
+
+                    # For Neural Net
+                    import tensorflow as tf
+                    from tensorflow import keras
                     
                     random.seed(3476)
                     # importing the dataset
@@ -755,6 +770,59 @@ def update_content(value):
                     
                     rf_models(X_train, y_train, X_test, y_test, 
                           200, 0, "Organizational Model")
+
+
+                    # Trying a simple neural net (Regression MLP)
+                    
+                    y = data.hom_rate 
+                    
+                    features = ['con_dur', 'peace_dur', 'totalbrds', 'totalosv', 'mtnest', 
+                          'v2x_libdem']
+                    
+                    X = data[features] 
+                    
+                    
+                    # splitting the data
+                    X_train_full, X_test, y_train_full, y_test = train_test_split(
+                            X, y, random_state=42)
+                    
+                    # so we have training, testing, and validation sets
+                    X_train, X_valid, y_train, y_valid = train_test_split(
+                            X_train_full, y_train_full, random_state=42)
+                    
+                    my_imputer = SimpleImputer()
+                    X_train_imputed = pd.DataFrame(my_imputer.fit_transform(X_train))
+                    X_valid_imputed = pd.DataFrame(my_imputer.fit_transform(X_valid))
+                    X_test_imputed = pd.DataFrame(my_imputer.transform(X_test))
+                    
+                    X_train_imputed.columns = X_train.columns
+                    X_valid_imputed.columns = X_valid.columns
+                    X_test_imputed.columns = X_test.columns
+                    
+                    # feature scaling
+                    sc = StandardScaler()
+                    X_train = sc.fit_transform(X_train_imputed)
+                    X_valid = sc.transform(X_valid_imputed)
+                    X_test = sc.transform(X_test_imputed)
+                    
+                    # building the net
+                    model = keras.models.Sequential([
+                        keras.layers.Dense(30, activation="relu", input_shape=X_train.shape[1:]),
+                        keras.layers.Dense(1)
+                    ])
+                    model.compile(loss="mean_squared_error", optimizer=keras.optimizers.SGD(lr=0.01))
+                    history = model.fit(X_train, y_train, epochs=20,
+                            validation_data=(X_valid, y_valid))
+                    mse_test = model.evaluate(X_test, y_test)
+                    X_new = X_test[:3]
+                    y_pred = model.predict(X_new)
+                    print(mse_test)
+                    
+                    preds = model.predict(X_test)
+                    print('Neural Net:')
+                    print('Mean absolute error: %.2f' % mean_absolute_error(y_test, preds))
+                    print('Mean squared error: %.2f' % mean_squared_error(y_test, preds))
+                    print('Coefficient of determination: %.2f' % r2_score(y_test, preds))
                     ```
                     ''',
                     style={
